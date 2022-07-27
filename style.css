@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --base-color: #5e2829;
+  --base-color-second: #7a3435;
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: #757575;
+  --body-color: #fafafa;
+  --body-dark-color: #f5f5f5;
+
+  /* fonts */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+}
+
+/* resets */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 400 1rem var(--title-font);
+  height: 100%;
+  width: 90vw;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* nav */
+
+#header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background: var(--body-color);
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.32rem;
+  color: #000;
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+nav {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding-inline: 5rem;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list li {
+  margin-right: 1rem;
+}
+
+.list li a {
+  color: #000;
+  transition: all 0.3 all;
+}
+
+.list li a:hover {
+  color: var(--base-color);
+}
+
+.list a::after {
+  display: block;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #5e2829;
+
+  position: relative;
+  bottom: -1rem;
+  left: 0;
+
+  transition: all 0.3s ease;
+}
+
+.list li a:hover::after {
+  width: 100%;
+}
+
+.icon-menu,
+.icon-close {
+  display: none;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rem;
+  padding-left: 5rem;
+}
+
+.description {
+  padding-left: 12rem;
+  display: flex;
+
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.description .title {
+  margin-top: 1rem;
+}
+
+.description .subtitle {
+  padding-right: 8rem;
+  opacity: 0.6;
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+form select {
+  border: 2px solid var(--base-color);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.buttons button {
+  padding: 1rem;
+  border: 3px solid #000;
+  background-color: var(--base-color);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: #fff;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+  border-color: var(--base-color);
+  background-color: #fff;
+  color: var(--base-color);
+}
+
+/* swiper */
+
+.swiper {
+  width: 120rem;
+  height: 30rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+.swiper img {
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.icon-contact {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.icon-contact:hover {
+  transform: rotate(360deg);
+}
+
+@media (max-width: 1000px) {
+  nav {
+    padding-inline: 1rem;
+  }
+
+  .list.show {
+    background: var(--body-color);
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s all;
+    font-size: 22px;
+    place-content: center;
+    transition: transform 300ms;
+    transform: translateX(0);
+  }
+
+  .list.show li {
+    margin-top: 4rem;
+  }
+
+  .list {
+    display: none;
+  }
+
+  .icon-close,
+  .icon-menu {
+    color: var(--base-color);
+    cursor: pointer;
+    display: flex;
+  }
+
+  .icon-close {
+    margin: 0;
+    position: relative;
+    left: 20rem;
+    top: 1rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-inline: auto;
+    padding-left: 3rem;
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .description .subtitle {
+    padding-right: 0;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+}
