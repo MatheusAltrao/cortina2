@@ -26,19 +26,19 @@ enviar.addEventListener('click', function () {
   const alturadacortina = document.getElementById('height')
   const larguradacortina = document.getElementById('width')
   const form = document.getElementById('formulario')
+  const tecido = document.getElementById('curtain-title')
 
   const valorAltura = alturadacortina.value
   const valorLargura = larguradacortina.value
   const valorForm = form.field.value
+  const valorTecido = tecido.innerHTML
 
-  alert(
-    '\nvalor Radio: ' +
-      valorForm +
-      '\nvalor Altura: ' +
-      valorAltura +
-      '\nvalor Largura: ' +
-      valorLargura
-  )
+  /*====================== calcular orcamento==================== */
+
+  window.location.href = `https://api.whatsapp.com/send?phone=556791285133&text=Olá quero fazer um orçamento %0A	Tecido escolhido: ${valorTecido}
+ %0AO tipo de cortina: ${valorForm} 
+ %0AAltura:  ${valorAltura}
+ %0ALargura:  ${valorLargura}`
 })
 
 /*====================== Cortina ==================== */

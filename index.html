@@ -175,6 +175,7 @@
           </p>
 
           <form id="formulario">
+            <h1 class="title">Faça o seu orçaamento</h1>
             <fieldset class="fields">
               <legend>Selecione o tipo de cortina:</legend>
               <div id="div-solar">
@@ -265,12 +266,14 @@
               />
             </div>
 
-            <input
-              class="button"
-              type="button"
+            <a
+              target="_blank"
               id="button"
-              value="Faça o seu orçamento conosco"
-            />
+              class="button"
+              href="https://api.whatsapp.com/send?phone=67999271900&text=Tipo de cortina ${valorForm} Altura  ${valorAltura} Largura  ${valorLargura}"
+            >
+              Calcular
+            </a>
           </form>
         </div>
       </div>
@@ -279,7 +282,7 @@
     <script>
       const swiper = new Swiper('.swiper', {
         // Optional parameters
-        loop: true,
+        loop: false,
         centeredSlides: true,
         autoplay: {
           delay: 2000,
