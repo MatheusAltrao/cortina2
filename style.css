@@ -32,7 +32,7 @@ html {
 body {
   font: 400 1rem var(--title-font);
   height: 100%;
-  width: 90vw;
+  width: 100vw;
 }
 
 /* nav */
@@ -114,7 +114,7 @@ nav {
   display: flex;
   justify-content: space-between;
   margin-top: 10rem;
-  padding-left: 2rem;
+  padding-left: 5rem;
 }
 
 .description {
@@ -125,13 +125,11 @@ nav {
   gap: 2rem;
 }
 
-.description .title {
-  margin-top: 1rem;
-}
-
 .description .subtitle {
-  width: 45rem;
+  width: 55rem;
   opacity: 0.6;
+  padding-right: 15rem;
+  text-align: justify;
 }
 
 form {
@@ -225,6 +223,10 @@ form {
 /* -====================== media -======================== */
 
 @media (max-width: 1000px) {
+  h1 {
+    text-align: center;
+  }
+
   nav {
     padding-inline: 10%;
   }
@@ -267,16 +269,17 @@ form {
   .icon-close {
     margin: 0;
     position: relative;
-    left: 40%;
+    left: 20rem;
     top: 1rem;
   }
 
   .content {
-    margin-top: 7rem;
+    margin-top: 6;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 2rem;
   }
 
   .swiper {
@@ -307,5 +310,21 @@ form {
   .dimension {
     display: flex;
     flex-direction: column;
+    width: 80%;
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form p {
+    text-align: center;
+    width: 90%;
+  }
+
+  form .button {
+    width: 15rem;
   }
 }
