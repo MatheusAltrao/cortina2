@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Decor'Art</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Five icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="fiveicon/favicon-16x16.png"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
     <!-- swiper -->
     <link
       rel="stylesheet"
@@ -35,12 +46,66 @@
                 ></path>
               </svg>
             </i>
-            <li><a class="list-title" href="#">Romana</a></li>
-            <li><a class="list-title" href="#">Blackout</a></li>
-            <li><a class="list-title" href="#">Persianas</a></li>
-            <li><a class="list-title" href="#">Rolô</a></li>
-            <li><a class="list-title" href="#">Double Vision</a></li>
-            <li><a class="list-title" href="#">Painel</a></li>
+            <li>
+              <a
+                class="list-title"
+                onclick="setRomana(event)"
+                id="default"
+                value="default"
+                href="#"
+                >Romana</a
+              >
+            </li>
+            <li>
+              <a
+                class="list-title"
+                onclick="setRolo(event)"
+                id="default"
+                value="default"
+                href="#"
+                >Rolô</a
+              >
+            </li>
+            <li>
+              <a
+                class="list-title"
+                onclick="setDoubleVision(event)"
+                id="default"
+                value="default"
+                href="#"
+                >Double Vision</a
+              >
+            </li>
+            <li>
+              <a
+                class="list-title"
+                onclick="setPainel(event)"
+                id="default"
+                value="default"
+                href="#"
+                >Painel</a
+              >
+            </li>
+            <li>
+              <a
+                class="list-title"
+                id="vert"
+                onclick="setVertical(event)"
+                value="vert"
+                href="#"
+                >Vertical</a
+              >
+            </li>
+            <li>
+              <a
+                class="list-title"
+                onclick="setHorizontal(event)"
+                id="hori"
+                value="hori"
+                href="#"
+                >Horizontal</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -64,90 +129,163 @@
 
     <main>
       <div class="content">
-        <!-- Slider main container -->
         <div class="swiper">
-          <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <img
-                src="https://images.unsplash.com/photo-1621242325989-0893b2a6f7e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+            <div class="swiper-slide" id="swiper1">
+              <figure id="img1">
+                <img
+                  src="./images/ROMANA/TELASOLAR/romana-telasolar.jpg"
+                  alt=""
+                  id="curtain-image1"
+                />
+                <figcaption id="caption1">Tela solar</figcaption>
+              </figure>
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://images.unsplash.com/photo-1658924288266-4ec20a81969c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <figure id="img2">
+                <img
+                  src="./images/ROMANA/TRANSLUCIDO/romana-translucida.jpg"
+                  alt=""
+                  id="curtain-image2"
+                />
+                <figcaption id="caption2">Translúcido</figcaption>
+              </figure>
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://images.unsplash.com/photo-1658905900425-f0a22fc5d024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <figure id="img3">
+                <img
+                  src="./images/ROMANA/BLACKOUT/romana-blackout.jpg"
+                  alt=""
+                  id="curtain-image3"
+                />
+                <figcaption id="caption3">Blackout</figcaption>
+              </figure>
             </div>
           </div>
-          <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
         </div>
-
         <div class="description">
-          <h1 class="title">Romana</h1>
-          <p class="subtitle">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit, assumenda? Aliquid quibusdam facere ad aspernatur.
-            Quae placeat doloribus quaerat, sit ipsum magnam alias accusamus
-            illo laudantium iure magni nobis laboriosam.
+          <h1 class="title" id="curtain-title">Romana</h1>
+          <p class="subtitle" id="curtain-subtitle">
+            A persiana romana é formada por “gomos” largos e horizontais que se
+            dobram e desdobram para cima ou para baixo na medida em que a
+            persiana é aberta ou fechada. O espaço entre as dobras da persiana
+            romana é o que torna esse modelo tão diferenciado, transmitindo
+            leveza e elegância aos ambientes.
           </p>
-          <form>
-            <label for="color">Cores disponíveis:</label>
-            <select id="color" name="color">
-              <option value="rosa">Rosa</option>
-              <option value="verde">Verde</option>
-              <option value="vermelho">Vermelho</option>
-              <option value="preto">Preto</option>
-            </select>
+
+          <form id="formulario">
+            <fieldset class="fields">
+              <legend>Selecione o tipo de cortina:</legend>
+              <div id="div-solar">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="solar"
+                  name="field"
+                  value="TelaSolar"
+                />
+                <label for="solar">Tela solar</label>
+              </div>
+
+              <div id="div-trans">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="trans"
+                  name="field"
+                  value="Translucido"
+                />
+                <label for="trans">Translúcida</label>
+              </div>
+
+              <div id="div-black">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="black"
+                  name="field"
+                  value="Blackout"
+                />
+                <label for="black">Blackout</label>
+              </div>
+
+              <div id="div-alum" class="hidden">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="alum"
+                  name="field"
+                  value="Aluminio"
+                />
+                <label for="alum">Alumínio</label>
+              </div>
+
+              <div id="div-pvc" class="hidden">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="pvc"
+                  name="field"
+                  value="Pvc"
+                />
+                <label for="pvc">PVC</label>
+              </div>
+
+              <div id="div-madeira" class="hidden">
+                <input
+                  type="radio"
+                  onclick="setSelectedOption(event)"
+                  id="madeira"
+                  name="field"
+                  value="madeira"
+                />
+                <label for="madedira">Madeira</label>
+              </div>
+            </fieldset>
+
+            <p>
+              Informe a altura da parede e a largura da janela em centímetros
+              (cm):
+            </p>
+            <div class="dimension">
+              <label for="altura">Altura:</label>
+              <input
+                type="text"
+                name="altura"
+                id="height"
+                placeholder="Altura (cm)"
+              />
+              <label for="largura">Largura:</label>
+              <input
+                type="text"
+                name="largura"
+                id="width"
+                placeholder="Largura (cm)"
+              />
+            </div>
+
+            <input
+              class="button"
+              type="button"
+              id="button"
+              value="Faça o seu orçamento conosco"
+            />
           </form>
-          <div class="buttons">
-            <button>Tela Solar</button>
-            <button>Translúcida</button>
-            <button>Blackout</button>
-          </div>
         </div>
       </div>
     </main>
 
-    <a
-      href="https://api.whatsapp.com/send?phone=+55679244-5776&text=Olá,vim pelo site e estou interessado em uma cortina"
-      target="_blank"
-      ><i class="icon-contact"
-        ><svg
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          viewBox="0 0 1024 1024"
-        >
-          <title></title>
-          <g id="icomoon-ignore"></g>
-          <path
-            fill="#25d366"
-            d="M746.581 613.632c-12.843-6.4-75.392-36.992-87.040-41.216-11.648-4.309-20.181-6.4-28.715 6.4-8.405 12.587-32.896 41.131-40.277 49.579-7.467 8.32-14.891 8.96-27.563 3.2-12.8-6.4-53.888-19.84-102.528-63.36-37.888-33.92-63.317-75.52-70.827-88.32-7.424-12.8-0.811-19.84 5.547-26.24 5.803-5.76 12.843-14.72 19.243-22.315 6.229-7.723 8.277-12.843 12.672-21.163 4.267-8.96 2.091-16-1.067-22.357-3.2-6.4-28.672-69.12-39.339-94.123-10.24-24.917-20.779-21.76-28.672-21.76-7.339-0.64-15.829-0.64-24.363-0.64s-22.315 3.157-34.005 15.317c-11.648 12.8-44.587 43.52-44.587 105.6s45.653 122.24 52.011 131.2c6.357 8.32 89.813 136.32 217.6 191.36 30.464 12.8 54.187 20.48 72.704 26.837 30.464 9.685 58.24 8.32 80.213 5.163 24.491-3.883 75.392-30.763 86.016-60.843 10.88-30.080 10.88-55.040 7.68-60.8-3.157-5.76-11.52-8.96-24.32-14.72zM514.603 928h-0.683c-75.52 0-150.357-20.48-215.68-58.88l-15.36-9.131-160 41.6 42.88-155.52-10.197-16c-42.24-67.243-64.683-144.683-64.683-224.427 0-232.32 190.080-421.76 424.192-421.76 113.237 0 219.52 44.16 299.563 124.16 80 79.317 124.117 185.6 124.117 298.24-0.171 232.277-190.293 421.76-423.893 421.76zM875.52 147.157c-97.28-94.037-225.28-147.157-361.6-147.157-280.832 0-509.483 227.584-509.611 507.435 0 89.429 23.424 176.64 68.053 253.653l-72.363 262.912 270.293-70.485c74.496 40.235 158.293 61.611 243.627 61.739h0.256c280.96 0 509.696-227.669 509.824-507.563 0-135.509-52.907-263.040-149.12-358.869z"
-          ></path>
-        </svg> </i
-    ></a>
-
     <script>
-      const swiper = new Swiper(".swiper", {
+      const swiper = new Swiper('.swiper', {
         // Optional parameters
         loop: true,
         centeredSlides: true,
         autoplay: {
-          delay: 1800,
-          disableOnInteraction: false,
-        },
-      });
+          delay: 2000,
+          disableOnInteraction: false
+        }
+      })
     </script>
 
     <script src="main.js"></script>
