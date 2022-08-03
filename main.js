@@ -35,10 +35,10 @@ enviar.addEventListener('click', function () {
 
   /*====================== calcular orcamento==================== */
 
-  window.location.href = `https://api.whatsapp.com/send?phone=556791285133&text=Olá quero fazer um orçamento %0A	Tecido escolhido: ${valorTecido}
- %0AO tipo de cortina: ${valorForm} 
- %0AAltura:  ${valorAltura}
- %0ALargura:  ${valorLargura}`
+  window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá quero fazer um orçamento %0A	Tecido escolhido: ${valorForm}
+ %0AO tipo de cortina:${valorTecido}
+ %0AAltura:${valorAltura}
+ %0ALargura:${valorLargura}`
 })
 
 /*====================== Cortina ==================== */
@@ -97,7 +97,7 @@ function setRolo(e) {
   setDefaultConfig()
   document.getElementById('curtain-title').innerHTML = 'Rolô'
   document.getElementById('curtain-subtitle').innerHTML =
-    'A  rolô abre de baixo para cima, mas não acumula gomos na parte superior. Neste caso, o tecido é guardado em um rolo na parte superior da janela.é uma ótima escolha para amenizar a passagem da luz ou vedá-la totalmente (blackout). Por isso, costumamos ver bastante em o modelo em varandas e salas.'
+    'A  rolô abre de baixo para cima, mas não acumula gomos na parte superior. Neste caso, o tecido é guardado em um rolo na parte superior da janela.é uma ótima escolha para amenizar a passagem da luz ou vedá-la totalmente (blackout). Por isso, costumamos ver  esse  modelo em varandas e salas.'
 
   curtainType = 'Rolo'
 
@@ -124,7 +124,7 @@ function setDoubleVision(e) {
   setDefaultConfig()
   document.getElementById('curtain-title').innerHTML = 'Double Vision'
   document.getElementById('curtain-subtitle').innerHTML =
-    'É perfeito para quem deseja o melhor controle de luz e privacidade para o ambiente. É um rolo duplo de tecido paralelo com tiras horizontais que podem se alternar, permitindo maior transparência e maior visibilidade externa, ou maior opacidade e, portanto, maior privacidade.A visão dupla proporciona o acabamento perfeito para suas janelas para deixar qualquer ambiente mais confortável e bonito.'
+    'É perfeito para quem deseja o melhor controle de luz e privacidade para o ambiente. É um rolo duplo de tecido paralelo com tiras horizontais que podem se alternar, permitindo maior transparência e maior visibilidade externa, ou maior opacidade e, portanto, maior privacidade. A visão dupla proporciona o acabamento perfeito para suas janelas deixando qualquer ambiente mais confortável e bonito.'
 
   curtainType = 'DoubleVision'
 
@@ -150,7 +150,7 @@ function setPainel(e) {
   setDefaultConfig()
   document.getElementById('curtain-title').innerHTML = 'Painel'
   document.getElementById('curtain-subtitle').innerHTML =
-    'As persianas de painel são uma solução inovadora ideal para cobrir grandes janelas, pois consistem em painéis mais estreitos ou mais largos que podem se sobrepor mais ou menos a eles, dependendo de suas necessidades.Os painéis sobrepostos é fundamental para que você alcance o nível de brilho desejado para o seu ambiente'
+    'As persianas de painel são uma solução inovadora ideal para cobrir grandes janelas, pois consiste em painéis mais estreitos ou mais largos que podem se sobrepor mais ou menos, dependendo de suas necessidades. Os painéis sobrepostos é fundamental para que você alcance o nível de brilho desejado para o seu ambiente.'
 
   curtainType = 'Painel'
 
@@ -215,7 +215,7 @@ function setHorizontal(e) {
 
   document.getElementById('curtain-title').innerHTML = 'Horizontal'
   document.getElementById('curtain-subtitle').innerHTML =
-    'As persianas horizontais são as mais comuns e geralmente são usadas em quartos, cozinhas, salas e espaços dedicados ao trabalho. Para controlar a luminosidade e a inclinação das lâminas são usados bastões de acrílico. Os materiais mais comuns são de alumínio e madeira.'
+    'As persianas horizontais são as mais comuns e geralmente são usadas em quartos, cozinhas, salas e especialmente em escritórios. Para controlar a luminosidade e a inclinação das lâminas são usados bastões de acrílico. Os materiais mais comuns são de alumínio e madeira.'
 
   curtainType = 'Horizontal'
 

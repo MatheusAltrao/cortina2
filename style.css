@@ -33,6 +33,7 @@ body {
   font: 400 1rem var(--title-font);
   height: 100%;
   width: 100vw;
+  overflow: hidden;
 }
 
 /* nav */
@@ -44,19 +45,33 @@ body {
   left: 0;
   z-index: 999;
   width: 100%;
-  background: var(--body-color);
+  background: var(--base-color);
   border-bottom: 1px solid #e4e4e4;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 1.32rem;
-  color: #000;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.image-logo {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+
+.image-logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .logo span {
-  color: var(--base-color);
+  color: #fff;
 }
 
 nav {
@@ -79,12 +94,8 @@ nav {
 }
 
 .list li a {
-  color: #000;
-  transition: all 0.3 all;
-}
-
-.list li a:hover {
-  color: var(--base-color);
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
 .list a::after {
@@ -92,7 +103,7 @@ nav {
   content: '';
   width: 0%;
   height: 2px;
-  background-color: #5e2829;
+  background-color: #fff;
 
   position: relative;
   bottom: -1rem;
@@ -115,6 +126,7 @@ nav {
   justify-content: space-between;
   margin-top: 10rem;
   padding-left: 5rem;
+  margin-bottom: 15rem;
 }
 
 .description {
@@ -227,12 +239,20 @@ form {
     text-align: center;
   }
 
+  .image-logo {
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+  }
+
   nav {
-    padding-inline: 10%;
+    padding-inline: 5%;
   }
 
   .list.show {
-    background: var(--body-color);
+    background: var(--base-color);
 
     height: 100vh;
     width: 100vw;
@@ -261,7 +281,7 @@ form {
 
   .icon-close,
   .icon-menu {
-    color: var(--base-color);
+    fill: #fff;
     cursor: pointer;
     display: flex;
   }

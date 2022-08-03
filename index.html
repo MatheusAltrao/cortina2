@@ -28,7 +28,10 @@
   <body>
     <header id="header">
       <nav>
-        <a class="logo" href="#">Decor<span>'Art</span> </a>
+        <a class="logo" href="#">
+          <img class="image-logo" src="logo/logosemfundo.png" alt="" />
+          <!--  <em>Decor<span>'Art</span> </em> -->
+        </a>
         <div class="menu">
           <ul class="list" id="list">
             <i onclick="closeMenu()" class="icon-close">
@@ -175,7 +178,7 @@
           </p>
 
           <form id="formulario">
-            <h1 class="title">Faça o seu orçaamento</h1>
+            <h1 class="title">Faça o seu orçamento</h1>
             <fieldset class="fields">
               <legend>Selecione o tipo de cortina:</legend>
               <div id="div-solar">
@@ -266,14 +269,7 @@
               />
             </div>
 
-            <a
-              target="_blank"
-              id="button"
-              class="button"
-              href="https://api.whatsapp.com/send?phone=67999271900&text=Tipo de cortina ${valorForm} Altura  ${valorAltura} Largura  ${valorLargura}"
-            >
-              Calcular
-            </a>
+            <a target="_blank" id="button" class="button" href=""> Calcular </a>
           </form>
         </div>
       </div>
