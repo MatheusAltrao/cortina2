@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  text-decoration: none;
+
   list-style: none;
 }
 
@@ -23,7 +23,7 @@
   --subtitle-font-size: 1rem;
 }
 
-/* resets */
+/* ===================== resets ===================== */
 
 html {
   scroll-behavior: smooth;
@@ -32,11 +32,10 @@ html {
 body {
   font: 400 1rem var(--title-font);
   height: 100%;
-  width: 100vw;
-  overflow: hidden;
+  width: 99vw;
 }
 
-/* nav */
+/* ===================== nav ===================== */
 
 #header {
   display: flex;
@@ -96,6 +95,7 @@ nav {
 .list li a {
   color: #fff;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .list a::after {
@@ -116,6 +116,8 @@ nav {
   width: 100%;
 }
 
+/* ===================== menu ===================== */
+
 .icon-menu,
 .icon-close {
   display: none;
@@ -126,7 +128,7 @@ nav {
   justify-content: space-between;
   margin-top: 10rem;
   padding-left: 5rem;
-  margin-bottom: 15rem;
+  margin-bottom: 5rem;
 }
 
 .description {
@@ -143,6 +145,8 @@ nav {
   padding-right: 15rem;
   text-align: justify;
 }
+
+/* ===================== form ===================== */
 
 form {
   margin-bottom: 1rem;
@@ -166,6 +170,50 @@ form {
   margin-left: 4rem;
 }
 
+/* ===================== summary ===================== */
+
+summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 15rem;
+  border: 3px solid var(--base-color);
+  background-color: #fff;
+  color: var(--base-color);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.summary-text strong {
+  text-align: center;
+  color: var(--base-color);
+}
+
+.summary-text {
+  animation-name: fade;
+  animation-duration: 500ms;
+  text-align: justify;
+  transition: ease;
+}
+
+@keyframes fade {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scaleX(-1000px);
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+/* ===================== button ===================== */
+
 .button {
   display: flex;
   align-items: center;
@@ -178,6 +226,7 @@ form {
   border-radius: 0.5rem;
   color: #fff;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .submit {
@@ -193,6 +242,7 @@ form {
   color: var(--base-color);
 }
 
+/* ===================== altura e largura */
 .dimension {
   display: flex;
   gap: 0.5rem;

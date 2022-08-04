@@ -17,6 +17,16 @@ for (const link of links) {
     list.classList.remove('show')
   })
 }
+/*====================== Summary==================== */
+
+const summary = document.getElementById('summary')
+
+summary.addEventListener('click', function () {
+  const text = document.getElementById('summaryText')
+
+  var element = document.getElementById('summaryText')
+  element.classList.toggle('hidden')
+})
 
 /*====================== Cortina Pedido==================== */
 

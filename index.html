@@ -28,10 +28,9 @@
   <body>
     <header id="header">
       <nav>
-        <a class="logo" href="#">
-          <img class="image-logo" src="logo/logosemfundo.png" alt="" />
-          <!--  <em>Decor<span>'Art</span> </em> -->
-        </a>
+        <img class="image-logo" src="logo/logosemfundo.png" alt="" />
+        <!--  <em>Decor<span>'Art</span> </em> -->
+
         <div class="menu">
           <ul class="list" id="list">
             <i onclick="closeMenu()" class="icon-close">
@@ -248,24 +247,41 @@
               </div>
             </fieldset>
 
-            <p>
-              Informe a altura da parede e a largura da janela em centímetros
-              (cm):
+            <summary id="summary">Como medir?</summary>
+            <p class="summary-text hidden" id="summaryText">
+              <strong> DENTRO DO VÃO </strong> <br />
+              Meça a largura e altura do vão da janela e diminua 1cm em cada
+              medida. Exemplo: Vão com 1,10x1,10 - Fazer pedido com 1,09 x 1,09;
+              (evite instalar persiana blackout dentro do vão)<br />
+              <br />
+              <strong> NA PAREDE</strong> <br />
+              Meça a largura e altura da janela e adicione 15cm em cada uma das
+              extremidades para melhor acabamento. Exemplo: Janela com 1,10x1,10
+              - Fazer pedido com 1,40x1,40; <br />
+              <br />
+              <strong> TETO</strong><br />
+              Meça a largura e altura da janela e adicione 15cm em cada lateral
+              e na parte de baixo. Meça a distância da janela até o teto e
+              adicione essa medida na altura da persiana. Exemplo: Janela com
+              1,10x1,10 - Fazer o pedido com (L)1,40x1,25(A) + a medida entre a
+              janela e o teto;
             </p>
+
             <div class="dimension">
-              <label for="altura">Altura:</label>
-              <input
-                type="text"
-                name="altura"
-                id="height"
-                placeholder="Altura (cm)"
-              />
               <label for="largura">Largura:</label>
               <input
                 type="text"
                 name="largura"
                 id="width"
                 placeholder="Largura (cm)"
+              />
+
+              <label for="altura">Altura:</label>
+              <input
+                type="text"
+                name="altura"
+                id="height"
+                placeholder="Altura (cm)"
               />
             </div>
 
@@ -286,7 +302,8 @@
         }
       })
     </script>
-
+    <!-- scroll revew -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
   </body>
 </html>
