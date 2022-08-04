@@ -195,20 +195,16 @@ summary {
   animation-name: fade;
   animation-duration: 500ms;
   text-align: justify;
-  transition: ease;
 }
 
 @keyframes fade {
   from {
     transform: scaleX(0);
     transform-origin: left;
-    opacity: 0.5;
   }
 
   to {
-    transform: scaleX(-1000px);
-    transform-origin: right;
-    opacity: 1;
+    transform: scaleX(1);
   }
 }
 
@@ -303,29 +299,44 @@ summary {
 
   .list.show {
     background: var(--base-color);
+    animation-name: show;
+    animation-duration: 300ms;
 
     height: 100vh;
-    width: 100vw;
+
+    width: 250px;
 
     position: fixed;
     top: 0;
-    left: 0;
+
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
     flex-direction: column;
-    transition: all 0.3s all;
-    font-size: 22px;
-    place-content: center;
-    transition: transform 300ms;
-    transform: translateX(0);
+
+    font-size: 16px;
+  }
+
+  @keyframes show {
+    0% {
+      width: 0;
+    }
+    20% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 
   .list.show li {
-    margin-top: 4rem;
+    margin-top: 7rem;
   }
 
   .list {
+    right: 0;
     display: none;
   }
 
@@ -337,10 +348,9 @@ summary {
   }
 
   .icon-close {
-    margin: 0;
-    position: relative;
-    left: 40%;
-    top: 1rem;
+    position: absolute;
+    top: 20px;
+    left: 30px;
   }
 
   .content {
@@ -361,7 +371,9 @@ summary {
     align-items: center;
     padding: 0;
   }
-
+  .description .title {
+    margin-top: 2rem;
+  }
   .description .subtitle {
     padding-right: 0;
     width: 80%;
