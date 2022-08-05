@@ -47,8 +47,8 @@ enviar.addEventListener('click', function () {
 
   window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá quero fazer um orçamento %0A	Tecido escolhido: ${valorForm}
  %0AO tipo de cortina:${valorTecido}
- %0AAltura:${valorAltura}
- %0ALargura:${valorLargura}`
+ %0ALargura:${valorLargura}
+ %0AAltura:${valorAltura}`
 })
 
 /*====================== Cortina ==================== */
