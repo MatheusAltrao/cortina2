@@ -293,10 +293,10 @@ summary {
   }
 
   .list.show {
+    overflow: hidden;
     background: var(--base-color);
     animation-name: show;
     animation-duration: 300ms;
-
     height: 100vh;
 
     width: 250px;
