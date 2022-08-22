@@ -30,26 +30,36 @@ summary.addEventListener('click', function () {
 
 /*====================== Cortina Pedido==================== */
 
-const enviar = document.getElementById('button')
-
-enviar.addEventListener('click', function () {
+function enviarPedido() {
   const alturadacortina = document.getElementById('height')
   const larguradacortina = document.getElementById('width')
   const form = document.getElementById('formulario')
   const tecido = document.getElementById('curtain-title')
 
+  console.log(form.commandField.value)
+
   const valorAltura = alturadacortina.value
   const valorLargura = larguradacortina.value
   const valorForm = form.field.value
-  const valorTecido = tecido.innerHTML
+  const valorTecido = tecido.innerText
+  const valorComando = form.commandField.value
+  const data = [valorAltura, valorLargura, valorForm, valorTecido, valorComando]
+  const hasNoValue = true
+  console.log('teste')
+  if (!data.includes('')) {
+    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento %0A***********%0ATecido escolhido: %20${valorForm}
+      %0AO tipo de cortina:%20${valorTecido}
+      %0AO tipo de comando:%20${valorComando}
+      %0ALargura:%20${valorLargura}
+      %0AAltura:%20${valorAltura}`
+  }
+  console.log('teste 1')
+  //Verificar se algum item de dentro do vetor data é igual a '' (Todas devem ter um valor)
+  //Se algum dos itens for vazio, manter variavel hasNoValue como true
+  //Fazer uso das funçoes do JS (Map, ForEach, includes)
 
   /*====================== calcular orcamento==================== */
-
-  window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento %0A	Tecido escolhido: ${valorForm}
- %0AO tipo de cortina:${valorTecido}
- %0ALargura:${valorLargura}
- %0AAltura:${valorAltura}`
-})
+}
 
 /*====================== Cortina ==================== */
 var solar = document.getElementById('div-solar')
@@ -79,6 +89,8 @@ function setSelectedOption(e) {
 
 function setRomana(e) {
   setDefaultConfig()
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.remove('hidden')
   document.getElementById('curtain-title').innerHTML = 'Romana'
   document.getElementById('curtain-subtitle').innerHTML =
     'A persiana romana é formada por “gomos” largos e horizontais que se dobram e desdobram para cima ou para baixo na medida em que a persiana é aberta ou fechada. O espaço entre as dobras da persiana romana é o que torna esse modelo tão diferenciado, transmitindo leveza e elegância aos ambientes.'
@@ -105,6 +117,8 @@ function setRomana(e) {
 
 function setRolo(e) {
   setDefaultConfig()
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.remove('hidden')
   document.getElementById('curtain-title').innerHTML = 'Rolô'
   document.getElementById('curtain-subtitle').innerHTML =
     'A  rolô abre de baixo para cima, mas não acumula gomos na parte superior. Neste caso, o tecido é guardado em um rolo na parte superior da janela.é uma ótima escolha para amenizar a passagem da luz ou vedá-la totalmente (blackout). Por isso, costumamos ver  esse  modelo em varandas e salas.'
@@ -132,6 +146,8 @@ function setRolo(e) {
 
 function setDoubleVision(e) {
   setDefaultConfig()
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.remove('hidden')
   document.getElementById('curtain-title').innerHTML = 'Double Vision'
   document.getElementById('curtain-subtitle').innerHTML =
     'É perfeito para quem deseja o melhor controle de luz e privacidade para o ambiente. É um rolo duplo de tecido paralelo com tiras horizontais que podem se alternar, permitindo maior transparência e maior visibilidade externa, ou maior opacidade e, portanto, maior privacidade. A visão dupla proporciona o acabamento perfeito para suas janelas deixando qualquer ambiente mais confortável e bonito.'
@@ -158,6 +174,8 @@ function setDoubleVision(e) {
 }
 function setPainel(e) {
   setDefaultConfig()
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.remove('hidden')
   document.getElementById('curtain-title').innerHTML = 'Painel'
   document.getElementById('curtain-subtitle').innerHTML =
     'As persianas de painel são uma solução inovadora ideal para cobrir grandes janelas, pois consiste em painéis mais estreitos ou mais largos que podem se sobrepor mais ou menos, dependendo de suas necessidades. Os painéis sobrepostos é fundamental para que você alcance o nível de brilho desejado para o seu ambiente.'
@@ -190,6 +208,8 @@ function setVertical(e) {
   alum.classList.add('hidden')
   trans.classList.remove('hidden')
   black.classList.remove('hidden')
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.add('hidden')
 
   document.getElementById('curtain-title').innerHTML = 'Vertical'
   document.getElementById('curtain-subtitle').innerHTML =
@@ -216,6 +236,8 @@ function setVertical(e) {
 }
 
 function setHorizontal(e) {
+  const fieldsetCommand = document.getElementById('curtainCommand')
+  fieldsetCommand.classList.remove('hidden')
   madeira.classList.remove('hidden')
   pvc.classList.remove('hidden')
   alum.classList.remove('hidden')
