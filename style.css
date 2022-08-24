@@ -37,6 +37,9 @@ hr {
   align-items: flex-start;
 }
 
+::selection {
+  background-color: var(--base-color);
+}
 /* ===================== nav ===================== */
 
 #header {
@@ -282,6 +285,22 @@ summary {
   display: none;
 }
 
+/*=====================  map =====================*/
+
+.topo {
+  text-align: center;
+  padding: 1rem;
+}
+
+.topo .title {
+  margin-bottom: 1rem;
+}
+
+.topo p {
+  opacity: 0.7;
+  margin-bottom: 5rem;
+}
+
 /* ===================== footer  =====================*/
 
 footer {
@@ -330,14 +349,18 @@ footer .social {
   align-items: center;
   gap: 1rem;
   fill: #fff;
+  color: #fff;
   padding-bottom: 2rem;
   padding-left: 0;
 }
-footer .social i {
+
+footer .social a {
   cursor: pointer;
   transition: all 0.3s ease;
+  fill: #fff;
+  color: #fff;
 }
-footer .social i:hover {
+footer .social a:hover {
   transform: translateY(-8px);
 }
 

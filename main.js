@@ -47,11 +47,18 @@ function enviarPedido() {
   const hasNoValue = true
   console.log('teste')
   if (!data.includes('')) {
-    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento %0A***********%0ATecido escolhido: %20${valorForm}
+    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
       %0AO tipo de cortina:%20${valorTecido}
       %0AO tipo de comando:%20${valorComando}
-      %0ALargura:%20${valorLargura}
-      %0AAltura:%20${valorAltura}`
+      %0ALargura:%20${valorLargura}cm
+      %0AAltura:%20${valorAltura}cm`
+  } else if (!data.includes('') || valorTecido == 'Vertical') {
+    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
+      %0AO tipo de cortina:%20${valorTecido}
+      %0ALargura:%20${valorLargura}cm
+      %0AAltura:%20${valorAltura}cm`
+  } else {
+    alert('Preencha todos os campos para calcular o orçamento!')
   }
   console.log('teste 1')
   //Verificar se algum item de dentro do vetor data é igual a '' (Todas devem ter um valor)
@@ -269,3 +276,17 @@ function setHorizontal(e) {
   document.getElementById('caption3').innerHTML = 'PVC'
   ////////////////
 }
+
+/* mapa */
+
+var map = L.map('mapid', {
+  center: [-20.782873, -51.700794],
+  zoom: 20
+})
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+L.marker([-20.782873, -51.700794]).addTo(map).bindPopup("Decor'art").openPopup()
