@@ -47,13 +47,13 @@ function enviarPedido() {
   const hasNoValue = true
   console.log('teste')
   if (!data.includes('')) {
-    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
+    window.location.href = `https://api.whatsapp.com/send?phone=556799983815&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
       %0AO tipo de cortina:%20${valorTecido}
       %0AO tipo de comando:%20${valorComando}
       %0ALargura:%20${valorLargura}cm
       %0AAltura:%20${valorAltura}cm`
   } else if (!data.includes('') || valorTecido == 'Vertical') {
-    window.location.href = `https://api.whatsapp.com/send?phone=556792445776&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
+    window.location.href = `https://api.whatsapp.com/send?phone=556799983815&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
       %0AO tipo de cortina:%20${valorTecido}
       %0ALargura:%20${valorLargura}cm
       %0AAltura:%20${valorAltura}cm`
