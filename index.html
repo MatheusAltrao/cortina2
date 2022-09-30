@@ -147,37 +147,39 @@
 
           <form id="formulario">
             <h1 class="title">Solicite o seu orçamento</h1>
-            <fieldset onclick="verifyCurtainType()" class="fields comand">
+            <fieldset class="fields comand">
               <legend>Selecione a persiana:</legend>
 
               <div id="pesiana-romana" class="div-persianas">
                 <label for="persianaList">Romana</label>
-                <input type="radio" name="persianaList" value="Romana" id="romana-list" required="required">
+                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Romana" id="romana-list"
+                  required="required">
               </div>
 
               <div id="pesiana-rolo" class="div-persianas">
                 <label for="persianaList">Rolô</label>
-                <input type="radio" name="persianaList" value="Rolô" id="rolo-list" required="required">
+                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Rolô" id="rolo-list"
+                  required="required">
               </div>
 
               <div id="pesiana-doublevision" class="div-persianas">
                 <label for="persianaList">Double Vision</label>
-                <input type="radio" name="persianaList" value="Double Vision" id="doublevision-list"
-                  required="required">
+                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Double Vision"
+                  id="doublevision-list" required="required">
               </div>
 
               <div id="pesiana-painel" class="div-persianas">
-                <label for="persianaList">Painel</label>
+                <label onclick="verifyCurtainType()" for="persianaList">Painel</label>
                 <input type="radio" name="persianaList" value="Painel" id="painel-list" required="required">
               </div>
 
               <div id="pesiana-vertical" class="div-persianas">
-                <label for="persianaList">Vertical</label>
+                <label onclick="verifyCurtainType()" for="persianaList">Vertical</label>
                 <input type="radio" name="persianaList" value="Vertical" id="vertical-list" required="required">
               </div>
 
               <div id="pesiana-horizontal" class="div-persianas">
-                <label for="persianaList">Horizontal</label>
+                <label onclick="verifyCurtainType()" for="persianaList">Horizontal</label>
                 <input type="radio" name="persianaList" value="Horizontal" id="horizontal-list" required="required">
               </div>
 

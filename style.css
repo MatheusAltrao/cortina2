@@ -48,9 +48,10 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--base-color); 
+  background: var(--base-color);
   border-radius: 10px;
 }
+
 /* ===================== nav ===================== */
 
 #header {
@@ -152,6 +153,7 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
 .description .title {
   margin-bottom: 2rem;
 }
@@ -383,6 +385,7 @@ footer .social a {
   fill: #fff;
   color: #fff;
 }
+
 footer .social a:hover {
   transform: translateY(-8px);
 }
@@ -498,6 +501,7 @@ footer .social a:hover {
     0% {
       width: 0;
     }
+
     20% {
       opacity: 0.5;
     }
@@ -600,20 +604,32 @@ footer .social a:hover {
     height: 100%;
     width: 100%;
     padding: 1rem 0;
+
+    text-align: center;
   }
 
-  .comand,.div-persianas {
+  .div-persianas {
+    height: 100%;
+    width: 100%;
+  }
+
+  .comand,
+  .div-persianas {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
-  .comand label{
+  input[type="radio"] {
+    margin: 0 auto;
+  }
+
+  .comand label {
     margin-left: 5px;
   }
 
- 
+
   .dimension {
     display: flex;
     flex-direction: column;
