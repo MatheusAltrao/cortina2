@@ -39,6 +39,17 @@ hr {
 
 ::selection {
   background-color: var(--base-color);
+  color: #fff;
+}
+
+/* -==================== scroll =================== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--base-color); 
+  border-radius: 10px;
 }
 /* ===================== nav ===================== */
 
@@ -188,17 +199,24 @@ form {
 .fields {
   display: flex;
   height: 5rem;
-  border: 3px solid #5e2829;
+  border: 3px solid var(--base-color);
   max-width: 40rem;
   border-radius: 0.5rem;
   gap: 1rem;
   justify-content: center;
 }
 
-.fields input {
-  margin-top: 1rem;
-  margin-right: 0.5rem;
+.fields input,
+label {
+  display: flex;
+  margin-top: 2px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
+
+/* ===================== inputs ===================== */
+
 
 /* ===================== summary ===================== */
 
@@ -276,9 +294,14 @@ summary {
 }
 
 .dimension input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 1.5rem;
-  border: 2px solid #5e2829;
+  border: 2px solid var(--base-color);
   border-radius: 0.3rem;
+  padding: 1rem;
+  letter-spacing: 3px;
 }
 
 .hidden {
@@ -563,6 +586,8 @@ footer .social a:hover {
     width: 80%;
   }
 
+
+
   .fields {
     display: flex;
     align-items: center;
@@ -571,10 +596,24 @@ footer .social a:hover {
     flex-direction: column;
     height: 15rem;
     font-size: 15px;
-    border-color: #5e2829;
+    border-color: var(--base-color);
+    height: 100%;
     width: 100%;
+    padding: 1rem 0;
   }
 
+  .comand,.div-persianas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .comand label{
+    margin-left: 5px;
+  }
+
+ 
   .dimension {
     display: flex;
     flex-direction: column;

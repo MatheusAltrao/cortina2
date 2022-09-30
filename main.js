@@ -36,19 +36,21 @@ function enviarPedido() {
   const form = document.getElementById('formulario')
   const tecido = document.getElementById('curtain-title')
 
-  console.log(form.commandField.value)
+
 
   const valorAltura = alturadacortina.value
   const valorLargura = larguradacortina.value
   const valorForm = form.field.value
   const valorTecido = tecido.innerText
   const valorComando = form.commandField.value
-  const data = [valorAltura, valorLargura, valorForm, valorTecido, valorComando]
-  const hasNoValue = true
-  console.log('teste')
+  const valorPersiana = form.persianaList.value
+  const data = [valorAltura, valorLargura, valorForm, valorTecido, valorComando, valorPersiana]
+
+
+
   if (!data.includes('')) {
     window.location.href = `https://api.whatsapp.com/send?phone=556799983815&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
-      %0AO tipo de cortina:%20${valorTecido}
+      %0AO tipo de cortina:%20${valorPersiana}
       %0AO tipo de comando:%20${valorComando}
       %0ALargura:%20${valorLargura}cm
       %0AAltura:%20${valorAltura}cm`
@@ -60,12 +62,57 @@ function enviarPedido() {
   } else {
     alert('Preencha todos os campos para calcular o orçamento!')
   }
-  console.log('teste 1')
+
+
   //Verificar se algum item de dentro do vetor data é igual a '' (Todas devem ter um valor)
   //Se algum dos itens for vazio, manter variavel hasNoValue como true
   //Fazer uso das funçoes do JS (Map, ForEach, includes)
 
   /*====================== calcular orcamento==================== */
+}
+
+
+function verifyCurtainType() {
+  const form = document.getElementById('formulario')
+  const valorPersiana = form.persianaList.value
+
+
+  if (valorPersiana == 'Romana') {
+    setRomana()
+    resetRadio()
+
+  } else if (valorPersiana == 'Rolô') {
+    setRolo()
+    resetRadio()
+
+  } else if (valorPersiana == 'Double Vision') {
+    setDoubleVision()
+    resetRadio()
+
+  } else if (valorPersiana == 'Painel') {
+    setPainel()
+    resetRadio()
+
+  } else if (valorPersiana == 'Vertical') {
+    setVertical()
+    resetRadio()
+
+  }
+  else if (valorPersiana == 'Horizontal') {
+    setHorizontal()
+    resetRadio()
+  }
+}
+
+
+/* =================== resetando o valor do radio====== */
+
+function resetRadio() {
+  var field = document.querySelectorAll('.field')
+
+  field.forEach((e) => {
+    e.checked = false;
+  })
 }
 
 /*====================== Cortina ==================== */

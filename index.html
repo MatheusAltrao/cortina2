@@ -1,489 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Decor'Art</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
-    <!-- Five icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="fiveicon/favicon-16x16.png"
-    />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="theme-color" content="#ffffff" />
+  <title>Decor'Art</title>
+  <link rel="stylesheet" href="style.css" />
 
-    <!-- swiper -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+  <!-- Five icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="fiveicon/favicon-16x16.png" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <!-- leaflet -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
+  <!-- leaflet -->
 
-    <style>
-      #mapid {
-        height: 500px;
-        width: 100%;
-        z-index: 9;
-        border-radius: 1rem;
-      }
-    </style>
-  </head>
-  <body class="containerwidth">
-    <header id="header">
-      <nav class="containerwidth">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <style>
+    #mapid {
+      height: 500px;
+      width: 100%;
+      z-index: 9;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+
+<body class="containerwidth">
+  <header id="header">
+    <nav class="containerwidth">
+      <img class="image-logo" src="logo/logosemfundo.png" alt="" />
+
+      <div class="menu containerwidth">
+        <ul class="list" id="list">
+          <i onclick="closeMenu()" class="icon-close">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 768 768">
+              <title></title>
+              <g id="icomoon-ignore"></g>
+              <path
+                d="M169.376 214.624l169.376 169.376-169.376 169.376c-12.512 12.512-12.512 32.768 0 45.248s32.768 12.512 45.248 0l169.376-169.376 169.376 169.376c12.512 12.512 32.768 12.512 45.248 0s12.512-32.768 0-45.248l-169.376-169.376 169.376-169.376c12.512-12.512 12.512-32.768 0-45.248s-32.768-12.512-45.248 0l-169.376 169.376-169.376-169.376c-12.512-12.512-32.768-12.512-45.248 0s-12.512 32.768 0 45.248z">
+              </path>
+            </svg>
+          </i>
+          <li>
+            <a class="list-title" onclick="setRomana(event)" id="default" value="default" href="#hr">Romana</a>
+          </li>
+          <li>
+            <a class="list-title" onclick="setRolo(event)" id="default" value="default" href="#hr">Rolô</a>
+          </li>
+          <li>
+            <a class="list-title" onclick="setDoubleVision(event)" id="default" value="default" href="#hr">Double
+              Vision</a>
+          </li>
+          <li>
+            <a class="list-title" onclick="setPainel(event)" id="default" value="default" href="#hr">Painel</a>
+          </li>
+          <li>
+            <a class="list-title" id="vert" onclick="setVertical(event)" value="vert" href="#hr">Vertical</a>
+          </li>
+          <li>
+            <a class="list-title" onclick="setHorizontal(event)" id="hori" value="hori" href="#hr">Horizontal</a>
+          </li>
+        </ul>
+      </div>
+
+      <i onclick="openMenu()" class="icon-menu">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 768 768">
+          <title></title>
+          <g id="icomoon-ignore"></g>
+          <path
+            d="M96 416h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32zM96 224h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32zM96 608h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32z">
+          </path>
+        </svg>
+      </i>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="containerwidth">
+      <div class="image">
+        <img src="logo/logoabout.png" alt="" />
+      </div>
+      <div class="details containerwidth">
+        <h1 class="title">Sobre Nós</h1>
+        <p class="subtitle">
+          A Decor’Art disponibiliza uma solução para clientes que buscam
+          produtos de qualidade, de forma rápida, de fácil acesso e com a
+          comodidade necessária. Compreendemos o quão demorado pode ser
+          esperar por todo o processo de medição, especificação e orçamento
+          das persianas. Por isso desenvolvemos uma experiência onde você
+          escolhe o modelo e o tecido que deseja em um.
+        </p>
+      </div>
+    </section>
+
+    <hr id="hr" />
+
+    <section id="container" class="containerwidth">
+      <div class="content">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" id="swiper1">
+              <figure id="img1">
+                <img src="./images/ROMANA/TELASOLAR/romana-telasolar.jpg" alt="" id="curtain-image1" />
+                <figcaption id="caption1">Tela solar</figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure id="img2">
+                <img src="./images/ROMANA/TRANSLUCIDO/romana-translucida.jpg" alt="" id="curtain-image2" />
+                <figcaption id="caption2">Translúcido</figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure id="img3">
+                <img src="./images/ROMANA/BLACKOUT/romana-blackout.jpg" alt="" id="curtain-image3" />
+                <figcaption id="caption3">Blackout</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="description containerwidth">
+          <h1 class="title" id="curtain-title">Romana</h1>
+          <p class="subtitle" id="curtain-subtitle">
+            A persiana romana é formada por “gomos” largos e horizontais que
+            se dobram e desdobram para cima ou para baixo na medida em que a
+            persiana é aberta ou fechada. O espaço entre as dobras da persiana
+            romana é o que torna esse modelo tão diferenciado, transmitindo
+            leveza e elegância aos ambientes.
+          </p>
+
+          <form id="formulario">
+            <h1 class="title">Solicite o seu orçamento</h1>
+            <fieldset onclick="verifyCurtainType()" class="fields comand">
+              <legend>Selecione a persiana:</legend>
+
+              <div id="pesiana-romana" class="div-persianas">
+                <label for="persianaList">Romana</label>
+                <input type="radio" name="persianaList" value="Romana" id="romana-list" required="required">
+              </div>
+
+              <div id="pesiana-rolo" class="div-persianas">
+                <label for="persianaList">Rolô</label>
+                <input type="radio" name="persianaList" value="Rolô" id="rolo-list" required="required">
+              </div>
+
+              <div id="pesiana-doublevision" class="div-persianas">
+                <label for="persianaList">Double Vision</label>
+                <input type="radio" name="persianaList" value="Double Vision" id="doublevision-list"
+                  required="required">
+              </div>
+
+              <div id="pesiana-painel" class="div-persianas">
+                <label for="persianaList">Painel</label>
+                <input type="radio" name="persianaList" value="Painel" id="painel-list" required="required">
+              </div>
+
+              <div id="pesiana-vertical" class="div-persianas">
+                <label for="persianaList">Vertical</label>
+                <input type="radio" name="persianaList" value="Vertical" id="vertical-list" required="required">
+              </div>
+
+              <div id="pesiana-horizontal" class="div-persianas">
+                <label for="persianaList">Horizontal</label>
+                <input type="radio" name="persianaList" value="Horizontal" id="horizontal-list" required="required">
+              </div>
+
+            </fieldset>
+
+
+            <fieldset class="fields comand" required="required">
+              <legend>Selecione o tipo de cortina:</legend>
+              <div id="div-solar">
+                <input type="radio" onclick="setSelectedOption(event)" id="solar" class="field" name="field"
+                  value="Tela%20Solar" required="required" />
+                <label for="solar">Tela solar</label>
+              </div>
+
+              <div id="div-trans">
+                <input type="radio" onclick="setSelectedOption(event)" id="trans" class="field" name="field"
+                  value="Translucido" required="required" />
+                <label for="trans">Translúcida</label>
+              </div>
+
+              <div id="div-black">
+                <input type="radio" onclick="setSelectedOption(event)" id="black" class="field" name="field"
+                  value="Blackout" required="required" />
+                <label for="black">Blackout</label>
+              </div>
+
+              <div class="comand" id="div-alum">
+                <input type="radio" onclick="setSelectedOption(event)" id="alum" class="field" name="field"
+                  value="Aluminio" required="required" />
+                <label for="alum">Alumínio</label>
+              </div>
+
+              <div class="comand" id="div-pvc">
+                <input type="radio" onclick="setSelectedOption(event)" id="pvc" class="field" name="field" value="Pvc"
+                  required="required" />
+                <label for="pvc">PVC</label>
+              </div>
+
+              <div class="comand" id="div-madeira">
+                <input type="radio" onclick="setSelectedOption(event)" id="madeira" class="field" name="field"
+                  value="madeira" required="required" />
+                <label for="madedira">Madeira</label>
+              </div>
+
+            </fieldset>
+
+            <fieldset id="curtainCommand" class="fields ">
+              <legend>Selecione o tipo de comando:</legend>
+
+
+
+              <div class="comand" id="div-xxxx">
+                <input type="radio" name="commandField" value="Manual" required="required" />
+                <label for="manual">Manual</label>
+              </div>
+              <div class="comand" id="div-xxxx">
+                <input type="radio" name="commandField" value="Motorizada" required="required" />
+                <label for="motorizada">Motorizada</label>
+              </div>
+            </fieldset>
+
+            <summary id="summary">Como medir?</summary>
+            <p class="summary-text hidden" id="summaryText">
+              <strong> DENTRO DO VÃO </strong> <br />
+              Meça a largura e altura do vão da janela e diminua 1cm em cada
+              medida. Exemplo: Vão com 1,10x1,10 - Fazer pedido com 1,09 x
+              1,09; (evite instalar persiana blackout dentro do vão)<br />
+              <br />
+              <strong> NA PAREDE</strong> <br />
+              Meça a largura e altura da janela e adicione 15cm em cada uma
+              das extremidades para melhor acabamento. Exemplo: Janela com
+              1,10x1,10 - Fazer pedido com 1,40x1,40; <br />
+              <br />
+              <strong> TETO</strong><br />
+              Meça a largura e altura da janela e adicione 15cm em cada
+              lateral e na parte de baixo. Meça a distância da janela até o
+              teto e adicione essa medida na altura da persiana. Exemplo:
+              Janela com 1,10x1,10 - Fazer o pedido com (L)1,40x1,25(A) + a
+              medida entre a janela e o teto;
+            </p>
+
+            <div class="dimension">
+              <label for="largura">Largura:</label>
+              <input type="text" name="largura" id="width" placeholder="Largura (cm)" required="required" />
+
+              <label for="altura">Altura:</label>
+              <input type="text" name="altura" id="height" placeholder="Altura (cm)" required="required" />
+            </div>
+
+            <a onclick="enviarPedido()" id="button" type="button" class="button" href="#">
+              Calcular
+            </a>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="localization">
+      <div class="topo">
+        <h1 class="title">Nós ficamos aqui!</h1>
+        <p>Use o nosso mapa para identificar a nossa localização.</p>
+
+        <div id="mapid"></div>
+      </div>
+      <hr />
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="col">
+      <div class="col-a">
         <img class="image-logo" src="logo/logosemfundo.png" alt="" />
-        <!--  <em>Decor<span>'Art</span> </em> -->
-
-        <div class="menu containerwidth">
-          <ul class="list" id="list">
-            <i onclick="closeMenu()" class="icon-close">
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 768 768"
-              >
+        <div class="rights-text">
+          <div class="rights-contact">
+            <p>
+              <strong>Endereço:</strong> Rua David Alexandria, 763 - Centro,
+              Três Lagoas - MS, 79601-140
+            </p>
+            <p><strong>Celular:</strong> (67)99983815</p>
+            <p>
+              <strong>Funcionamento:</strong> Seg a Sext 8:00 às 18:00 - Sáb
+              8:00 às 12:00
+            </p>
+            <p><strong>CNPJ:</strong> 23.370.244/0001-61</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-b">
+        <div class="social">
+          <a target="_blank" href="https://www.instagram.com/decorart_cortinasepersianas/"><i>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 768 768">
                 <title></title>
                 <g id="icomoon-ignore"></g>
                 <path
-                  d="M169.376 214.624l169.376 169.376-169.376 169.376c-12.512 12.512-12.512 32.768 0 45.248s32.768 12.512 45.248 0l169.376-169.376 169.376 169.376c12.512 12.512 32.768 12.512 45.248 0s12.512-32.768 0-45.248l-169.376-169.376 169.376-169.376c12.512-12.512 12.512-32.768 0-45.248s-32.768-12.512-45.248 0l-169.376 169.376-169.376-169.376c-12.512-12.512-32.768-12.512-45.248 0s-12.512 32.768 0 45.248z"
-                ></path>
-              </svg>
-            </i>
-            <li>
-              <a
-                class="list-title"
-                onclick="setRomana(event)"
-                id="default"
-                value="default"
-                href="#hr"
-                >Romana</a
-              >
-            </li>
-            <li>
-              <a
-                class="list-title"
-                onclick="setRolo(event)"
-                id="default"
-                value="default"
-                href="#hr"
-                >Rolô</a
-              >
-            </li>
-            <li>
-              <a
-                class="list-title"
-                onclick="setDoubleVision(event)"
-                id="default"
-                value="default"
-                href="#hr"
-                >Double Vision</a
-              >
-            </li>
-            <li>
-              <a
-                class="list-title"
-                onclick="setPainel(event)"
-                id="default"
-                value="default"
-                href="#hr"
-                >Painel</a
-              >
-            </li>
-            <li>
-              <a
-                class="list-title"
-                id="vert"
-                onclick="setVertical(event)"
-                value="vert"
-                href="#hr"
-                >Vertical</a
-              >
-            </li>
-            <li>
-              <a
-                class="list-title"
-                onclick="setHorizontal(event)"
-                id="hori"
-                value="hori"
-                href="#hr"
-                >Horizontal</a
-              >
-            </li>
-          </ul>
-        </div>
+                  d="M224 32c-53.024 0-101.056 21.536-135.776 56.224s-56.224 82.752-56.224 135.776v320c0 53.024 21.536 101.056 56.224 135.776s82.752 56.224 135.776 56.224h320c53.024 0 101.056-21.536 135.776-56.224s56.224-82.752 56.224-135.776v-320c0-53.024-21.536-101.056-56.224-135.776s-82.752-56.224-135.776-56.224zM224 96h320c35.36 0 67.296 14.304 90.496 37.504s37.504 55.136 37.504 90.496v320c0 35.36-14.304 67.296-37.504 90.496s-55.136 37.504-90.496 37.504h-320c-35.36 0-67.296-14.304-90.496-37.504s-37.504-55.136-37.504-90.496v-320c0-35.36 14.304-67.296 37.504-90.496s55.136-37.504 90.496-37.504zM543.648 359.136c-4.8-31.104-18.272-59.424-38.208-82.144-24.128-27.552-57.728-46.88-96.288-52.608-14.848-2.368-31.040-2.464-47.264-0.064-43.712 6.464-80.672 30.112-105.024 62.944s-36.256 75.104-29.76 118.784 30.112 80.672 62.944 105.024 75.104 36.256 118.784 29.76 80.672-30.112 105.024-62.944 36.256-75.104 29.76-118.784zM480.352 368.544c3.904 26.24-3.2 51.488-17.856 71.264s-36.8 33.888-63.008 37.76-51.488-3.2-71.264-17.856-33.888-36.8-37.76-63.008 3.2-51.488 17.856-71.264 36.8-33.888 63.008-37.76c10.016-1.472 19.68-1.344 27.84-0.064 23.68 3.52 43.712 15.040 58.176 31.552 12 13.696 20.16 30.816 23.040 49.376zM560 240c17.664 0 32-14.336 32-32s-14.336-32-32-32-32 14.336-32 32 14.336 32 32 32z">
+                </path>
+              </svg> </i></a>
 
-        <i onclick="openMenu()" class="icon-menu">
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 768 768"
-          >
-            <title></title>
-            <g id="icomoon-ignore"></g>
-            <path
-              d="M96 416h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32zM96 224h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32zM96 608h576c17.664 0 32-14.336 32-32s-14.336-32-32-32h-576c-17.664 0-32 14.336-32 32s14.336 32 32 32z"
-            ></path>
-          </svg>
-        </i>
-      </nav>
-    </header>
-
-    <main>
-      <section id="about" class="containerwidth">
-        <div class="image">
-          <img src="logo/logoabout.png" alt="" />
-        </div>
-        <div class="details containerwidth">
-          <h1 class="title">Sobre Nós</h1>
-          <p class="subtitle">
-            A Decor’Art disponibiliza uma solução para clientes que buscam
-            produtos de qualidade, de forma rápida, de fácil acesso e com a
-            comodidade necessária. Compreendemos o quão demorado pode ser
-            esperar por todo o processo de medição, especificação e orçamento
-            das persianas. Por isso desenvolvemos uma experiência onde você
-            escolhe o modelo e o tecido que deseja em um.
-          </p>
-        </div>
-      </section>
-
-      <hr id="hr" />
-
-      <section id="container" class="containerwidth">
-        <div class="content">
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" id="swiper1">
-                <figure id="img1">
-                  <img
-                    src="./images/ROMANA/TELASOLAR/romana-telasolar.jpg"
-                    alt=""
-                    id="curtain-image1"
-                  />
-                  <figcaption id="caption1">Tela solar</figcaption>
-                </figure>
-              </div>
-              <div class="swiper-slide">
-                <figure id="img2">
-                  <img
-                    src="./images/ROMANA/TRANSLUCIDO/romana-translucida.jpg"
-                    alt=""
-                    id="curtain-image2"
-                  />
-                  <figcaption id="caption2">Translúcido</figcaption>
-                </figure>
-              </div>
-              <div class="swiper-slide">
-                <figure id="img3">
-                  <img
-                    src="./images/ROMANA/BLACKOUT/romana-blackout.jpg"
-                    alt=""
-                    id="curtain-image3"
-                  />
-                  <figcaption id="caption3">Blackout</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <div class="description containerwidth">
-            <h1 class="title" id="curtain-title">Romana</h1>
-            <p class="subtitle" id="curtain-subtitle">
-              A persiana romana é formada por “gomos” largos e horizontais que
-              se dobram e desdobram para cima ou para baixo na medida em que a
-              persiana é aberta ou fechada. O espaço entre as dobras da persiana
-              romana é o que torna esse modelo tão diferenciado, transmitindo
-              leveza e elegância aos ambientes.
-            </p>
-
-            <form id="formulario">
-              <h1 class="title">Solicite o seu orçamento</h1>
-              <fieldset class="fields" required="required">
-                <legend>Selecione o tipo de cortina:</legend>
-                <div id="div-solar">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="solar"
-                    name="field"
-                    value="Tela%20Solar"
-                    required="required"
-                  />
-                  <label for="solar">Tela solar</label>
-                </div>
-
-                <div id="div-trans">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="trans"
-                    name="field"
-                    value="Translucido"
-                    required="required"
-                  />
-                  <label for="trans">Translúcida</label>
-                </div>
-
-                <div id="div-black">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="black"
-                    name="field"
-                    value="Blackout"
-                    required="required"
-                  />
-                  <label for="black">Blackout</label>
-                </div>
-
-                <div id="div-alum" class="hidden">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="alum"
-                    name="field"
-                    value="Aluminio"
-                    required="required"
-                  />
-                  <label for="alum">Alumínio</label>
-                </div>
-
-                <div id="div-pvc" class="hidden">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="pvc"
-                    name="field"
-                    value="Pvc"
-                    required="required"
-                  />
-                  <label for="pvc">PVC</label>
-                </div>
-
-                <div id="div-madeira" class="hidden">
-                  <input
-                    type="radio"
-                    onclick="setSelectedOption(event)"
-                    id="madeira"
-                    name="field"
-                    value="madeira"
-                    required="required"
-                  />
-                  <label for="madedira">Madeira</label>
-                </div>
-              </fieldset>
-
-              <fieldset id="curtainCommand" class="fields">
-                <legend>Selecione o tipo de comando:</legend>
-                <div id="div-xxxx">
-                  <input
-                    type="radio"
-                    name="commandField"
-                    value="Manual"
-                    required="required"
-                  />
-                  <label for="manual">Manual</label>
-                </div>
-                <div id="div-xxxx">
-                  <input
-                    type="radio"
-                    name="commandField"
-                    value="Motorizada"
-                    required="required"
-                  />
-                  <label for="motorizada">Motorizada</label>
-                </div>
-              </fieldset>
-
-              <summary id="summary">Como medir?</summary>
-              <p class="summary-text hidden" id="summaryText">
-                <strong> DENTRO DO VÃO </strong> <br />
-                Meça a largura e altura do vão da janela e diminua 1cm em cada
-                medida. Exemplo: Vão com 1,10x1,10 - Fazer pedido com 1,09 x
-                1,09; (evite instalar persiana blackout dentro do vão)<br />
-                <br />
-                <strong> NA PAREDE</strong> <br />
-                Meça a largura e altura da janela e adicione 15cm em cada uma
-                das extremidades para melhor acabamento. Exemplo: Janela com
-                1,10x1,10 - Fazer pedido com 1,40x1,40; <br />
-                <br />
-                <strong> TETO</strong><br />
-                Meça a largura e altura da janela e adicione 15cm em cada
-                lateral e na parte de baixo. Meça a distância da janela até o
-                teto e adicione essa medida na altura da persiana. Exemplo:
-                Janela com 1,10x1,10 - Fazer o pedido com (L)1,40x1,25(A) + a
-                medida entre a janela e o teto;
-              </p>
-
-              <div class="dimension">
-                <label for="largura">Largura:</label>
-                <input
-                  type="text"
-                  name="largura"
-                  id="width"
-                  placeholder="Largura (cm)"
-                  required="required"
-                />
-
-                <label for="altura">Altura:</label>
-                <input
-                  type="text"
-                  name="altura"
-                  id="height"
-                  placeholder="Altura (cm)"
-                  required="required"
-                />
-              </div>
-
-              <a
-                onclick="enviarPedido()"
-                id="button"
-                type="button"
-                class="button"
-                href="#"
-              >
-                Calcular
-              </a>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <hr />
-
-      <section id="localization">
-        <div class="topo">
-          <h1 class="title">Nós ficamos aqui!</h1>
-          <p>Use o nosso mapa para identificar a nossa localização.</p>
-
-          <div id="mapid"></div>
-        </div>
-        <hr />
-      </section>
-    </main>
-
-    <!-- footer -->
-    <footer>
-      <div class="col">
-        <div class="col-a">
-          <img class="image-logo" src="logo/logosemfundo.png" alt="" />
-          <div class="rights-text">
-            <div class="rights-contact">
-              <p>
-                <strong>Endereço:</strong> Rua David Alexandria, 763 - Centro,
-                Três Lagoas - MS, 79601-140
-              </p>
-              <p><strong>Celular:</strong> (67)99983815</p>
-              <p>
-                <strong>Funcionamento:</strong> Seg a Sext 8:00 às 18:00 - Sáb
-                8:00 às 12:00
-              </p>
-              <p><strong>CNPJ:</strong> 23.370.244/0001-61</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-b">
-          <div class="social">
-            <a
-              target="_blank"
-              href="https://www.instagram.com/decorart_cortinasepersianas/"
-              ><i>
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="23"
-                  height="23"
-                  viewBox="0 0 768 768"
-                >
-                  <title></title>
-                  <g id="icomoon-ignore"></g>
-                  <path
-                    d="M224 32c-53.024 0-101.056 21.536-135.776 56.224s-56.224 82.752-56.224 135.776v320c0 53.024 21.536 101.056 56.224 135.776s82.752 56.224 135.776 56.224h320c53.024 0 101.056-21.536 135.776-56.224s56.224-82.752 56.224-135.776v-320c0-53.024-21.536-101.056-56.224-135.776s-82.752-56.224-135.776-56.224zM224 96h320c35.36 0 67.296 14.304 90.496 37.504s37.504 55.136 37.504 90.496v320c0 35.36-14.304 67.296-37.504 90.496s-55.136 37.504-90.496 37.504h-320c-35.36 0-67.296-14.304-90.496-37.504s-37.504-55.136-37.504-90.496v-320c0-35.36 14.304-67.296 37.504-90.496s55.136-37.504 90.496-37.504zM543.648 359.136c-4.8-31.104-18.272-59.424-38.208-82.144-24.128-27.552-57.728-46.88-96.288-52.608-14.848-2.368-31.040-2.464-47.264-0.064-43.712 6.464-80.672 30.112-105.024 62.944s-36.256 75.104-29.76 118.784 30.112 80.672 62.944 105.024 75.104 36.256 118.784 29.76 80.672-30.112 105.024-62.944 36.256-75.104 29.76-118.784zM480.352 368.544c3.904 26.24-3.2 51.488-17.856 71.264s-36.8 33.888-63.008 37.76-51.488-3.2-71.264-17.856-33.888-36.8-37.76-63.008 3.2-51.488 17.856-71.264 36.8-33.888 63.008-37.76c10.016-1.472 19.68-1.344 27.84-0.064 23.68 3.52 43.712 15.040 58.176 31.552 12 13.696 20.16 30.816 23.040 49.376zM560 240c17.664 0 32-14.336 32-32s-14.336-32-32-32-32 14.336-32 32 14.336 32 32 32z"
-                  ></path>
-                </svg> </i
-            ></a>
-
-            <a
-              target="_blank"
-              href="https://api.whatsapp.com/send?phone=556799983815&text=olá,vim pelo site e gostaria de conhecer melhor a loja"
-              ><i>
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="23"
-                  height="23"
-                  viewBox="0 0 1024 1024"
-                >
-                  <title></title>
-                  <g id="icomoon-ignore"></g>
-                  <path
-                    fill="#fff"
-                    d="M746.581 613.632c-12.843-6.4-75.392-36.992-87.040-41.216-11.648-4.309-20.181-6.4-28.715 6.4-8.405 12.587-32.896 41.131-40.277 49.579-7.467 8.32-14.891 8.96-27.563 3.2-12.8-6.4-53.888-19.84-102.528-63.36-37.888-33.92-63.317-75.52-70.827-88.32-7.424-12.8-0.811-19.84 5.547-26.24 5.803-5.76 12.843-14.72 19.243-22.315 6.229-7.723 8.277-12.843 12.672-21.163 4.267-8.96 2.091-16-1.067-22.357-3.2-6.4-28.672-69.12-39.339-94.123-10.24-24.917-20.779-21.76-28.672-21.76-7.339-0.64-15.829-0.64-24.363-0.64s-22.315 3.157-34.005 15.317c-11.648 12.8-44.587 43.52-44.587 105.6s45.653 122.24 52.011 131.2c6.357 8.32 89.813 136.32 217.6 191.36 30.464 12.8 54.187 20.48 72.704 26.837 30.464 9.685 58.24 8.32 80.213 5.163 24.491-3.883 75.392-30.763 86.016-60.843 10.88-30.080 10.88-55.040 7.68-60.8-3.157-5.76-11.52-8.96-24.32-14.72zM514.603 928h-0.683c-75.52 0-150.357-20.48-215.68-58.88l-15.36-9.131-160 41.6 42.88-155.52-10.197-16c-42.24-67.243-64.683-144.683-64.683-224.427 0-232.32 190.080-421.76 424.192-421.76 113.237 0 219.52 44.16 299.563 124.16 80 79.317 124.117 185.6 124.117 298.24-0.171 232.277-190.293 421.76-423.893 421.76zM875.52 147.157c-97.28-94.037-225.28-147.157-361.6-147.157-280.832 0-509.483 227.584-509.611 507.435 0 89.429 23.424 176.64 68.053 253.653l-72.363 262.912 270.293-70.485c74.496 40.235 158.293 61.611 243.627 61.739h0.256c280.96 0 509.696-227.669 509.824-507.563 0-135.509-52.907-263.040-149.12-358.869z"
-                  ></path>
-                </svg> </i
-            ></a>
-          </div>
+          <a target="_blank"
+            href="https://api.whatsapp.com/send?phone=556799983815&text=olá,vim pelo site e gostaria de conhecer melhor a loja"><i>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 1024 1024">
+                <title></title>
+                <g id="icomoon-ignore"></g>
+                <path fill="#fff"
+                  d="M746.581 613.632c-12.843-6.4-75.392-36.992-87.040-41.216-11.648-4.309-20.181-6.4-28.715 6.4-8.405 12.587-32.896 41.131-40.277 49.579-7.467 8.32-14.891 8.96-27.563 3.2-12.8-6.4-53.888-19.84-102.528-63.36-37.888-33.92-63.317-75.52-70.827-88.32-7.424-12.8-0.811-19.84 5.547-26.24 5.803-5.76 12.843-14.72 19.243-22.315 6.229-7.723 8.277-12.843 12.672-21.163 4.267-8.96 2.091-16-1.067-22.357-3.2-6.4-28.672-69.12-39.339-94.123-10.24-24.917-20.779-21.76-28.672-21.76-7.339-0.64-15.829-0.64-24.363-0.64s-22.315 3.157-34.005 15.317c-11.648 12.8-44.587 43.52-44.587 105.6s45.653 122.24 52.011 131.2c6.357 8.32 89.813 136.32 217.6 191.36 30.464 12.8 54.187 20.48 72.704 26.837 30.464 9.685 58.24 8.32 80.213 5.163 24.491-3.883 75.392-30.763 86.016-60.843 10.88-30.080 10.88-55.040 7.68-60.8-3.157-5.76-11.52-8.96-24.32-14.72zM514.603 928h-0.683c-75.52 0-150.357-20.48-215.68-58.88l-15.36-9.131-160 41.6 42.88-155.52-10.197-16c-42.24-67.243-64.683-144.683-64.683-224.427 0-232.32 190.080-421.76 424.192-421.76 113.237 0 219.52 44.16 299.563 124.16 80 79.317 124.117 185.6 124.117 298.24-0.171 232.277-190.293 421.76-423.893 421.76zM875.52 147.157c-97.28-94.037-225.28-147.157-361.6-147.157-280.832 0-509.483 227.584-509.611 507.435 0 89.429 23.424 176.64 68.053 253.653l-72.363 262.912 270.293-70.485c74.496 40.235 158.293 61.611 243.627 61.739h0.256c280.96 0 509.696-227.669 509.824-507.563 0-135.509-52.907-263.040-149.12-358.869z">
+                </path>
+              </svg> </i></a>
         </div>
       </div>
+    </div>
 
-      <div class="dev">
-        <p>&copyTodos os direitos reservados</p>
-        <p>
-          Desenvolvido por
-          <a href="https://matheusaltrao.github.io/portfolio/"
-            >Matheus Altrão</a
-          >
-          e
-          <a href="https://myauti-portfolio.vercel.app/">Rafael Myauti</a>
-        </p>
-      </div>
-    </footer>
+    <div class="dev">
+      <p>&copyTodos os direitos reservados</p>
+      <p>
+        Desenvolvido por
+        <a href="https://matheusaltrao.github.io/portfolio/">Matheus Altrão</a>
+        e
+        <a href="https://myauti-portfolio.vercel.app/">Rafael Myauti</a>
+      </p>
+    </div>
+  </footer>
 
-    <!-- swiper -->
-    <script>
-      const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        loop: false,
-        centeredSlides: true,
-        autoplay: {
-          delay: 2000,
-          disableOnInteraction: false
-        }
-      })
-    </script>
+  <!-- swiper -->
+  <script>
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false
+      }
+    })
+  </script>
 
-    <!-- scroll revew -->
+  <!-- scroll revew -->
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
-  </body>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
