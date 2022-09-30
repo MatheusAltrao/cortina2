@@ -1,12 +1,12 @@
 /*====================== menu ==================== */
 
 function openMenu() {
-  var list = document.getElementById('list')
+  const list = document.getElementById('list')
   list.classList.add('show')
 }
 
 function closeMenu() {
-  var list = document.getElementById('list')
+  const list = document.getElementById('list')
   list.classList.remove('show')
 }
 
@@ -324,7 +324,7 @@ function setHorizontal(e) {
   ////////////////
 }
 
-/* mapa */
+/* =============== mapa =============== */
 
 var map = L.map('mapid', {
   center: [-20.782873, -51.700794],

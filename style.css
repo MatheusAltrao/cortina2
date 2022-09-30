@@ -476,48 +476,36 @@ footer .social a:hover {
     align-items: center;
   }
 
-  .list.show {
-    overflow: hidden;
+  .list.list {
+
     background: var(--base-color);
-    animation-name: show;
-    animation-duration: 300ms;
     height: 100vh;
-
-    width: 250px;
-
-    position: fixed;
+    width: 300px;
+    right: -300px;
     top: 0;
+    position: fixed;
+
+    z-index: 9;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
+    padding-top: 5rem;
+
+    gap: 5rem;
+
     flex-direction: column;
 
     font-size: 16px;
+
+    transition: all 0.3s ease;
   }
 
-  @keyframes show {
-    0% {
-      width: 0;
-    }
 
-    20% {
-      opacity: 0.5;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .list.show li {
-    margin-top: 4rem;
-  }
-
-  .list {
+  .list.list.show {
     right: 0;
-    display: none;
+
   }
 
   .icon-close,
@@ -611,18 +599,21 @@ footer .social a:hover {
   .div-persianas {
     height: 100%;
     width: 100%;
+    margin: 0 auto;
   }
 
-  .comand,
+
   .div-persianas {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 8px;
   }
 
   input[type="radio"] {
     margin: 0 auto;
+    align-self: center;
   }
 
   .comand label {

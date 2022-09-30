@@ -147,7 +147,7 @@
 
           <form id="formulario">
             <h1 class="title">Solicite o seu orçamento</h1>
-            <fieldset class="fields comand">
+            <fieldset class="fields div-persianas">
               <legend>Selecione a persiana:</legend>
 
               <div id="pesiana-romana" class="div-persianas">
@@ -189,39 +189,39 @@
             </fieldset>
 
 
-            <fieldset class="fields comand" required="required">
+            <fieldset class="fields div-persianas" required="required">
               <legend>Selecione o tipo de cortina:</legend>
-              <div id="div-solar">
+              <div id="div-solar" class="div-persianas">
                 <input type="radio" onclick="setSelectedOption(event)" id="solar" class="field" name="field"
                   value="Tela%20Solar" required="required" />
                 <label for="solar">Tela solar</label>
               </div>
 
-              <div id="div-trans">
+              <div id="div-trans" class="div-persianas">
                 <input type="radio" onclick="setSelectedOption(event)" id="trans" class="field" name="field"
                   value="Translucido" required="required" />
                 <label for="trans">Translúcida</label>
               </div>
 
-              <div id="div-black">
+              <div id="div-black" class="div-persianas">
                 <input type="radio" onclick="setSelectedOption(event)" id="black" class="field" name="field"
                   value="Blackout" required="required" />
                 <label for="black">Blackout</label>
               </div>
 
-              <div class="comand" id="div-alum">
+              <div class="div-persianas" id="div-alum">
                 <input type="radio" onclick="setSelectedOption(event)" id="alum" class="field" name="field"
                   value="Aluminio" required="required" />
                 <label for="alum">Alumínio</label>
               </div>
 
-              <div class="comand" id="div-pvc">
+              <div class="div-persianas" id="div-pvc">
                 <input type="radio" onclick="setSelectedOption(event)" id="pvc" class="field" name="field" value="Pvc"
                   required="required" />
                 <label for="pvc">PVC</label>
               </div>
 
-              <div class="comand" id="div-madeira">
+              <div class="div-persianas" id="div-madeira">
                 <input type="radio" onclick="setSelectedOption(event)" id="madeira" class="field" name="field"
                   value="madeira" required="required" />
                 <label for="madedira">Madeira</label>
@@ -232,13 +232,11 @@
             <fieldset id="curtainCommand" class="fields ">
               <legend>Selecione o tipo de comando:</legend>
 
-
-
-              <div class="comand" id="div-xxxx">
+              <div class="div-persianas" id="div-xxxx">
                 <input type="radio" name="commandField" value="Manual" required="required" />
                 <label for="manual">Manual</label>
               </div>
-              <div class="comand" id="div-xxxx">
+              <div class="div-persianas" id="div-xxxx">
                 <input type="radio" name="commandField" value="Motorizada" required="required" />
                 <label for="motorizada">Motorizada</label>
               </div>
