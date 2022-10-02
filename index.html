@@ -32,7 +32,7 @@
 
   <style>
     #mapid {
-      height: 500px;
+      height: 300px;
       width: 100%;
       z-index: 9;
       border-radius: 1rem;
@@ -145,49 +145,54 @@
             leveza e elegância aos ambientes.
           </p>
 
+          <!-- Persianas -->
+
           <form id="formulario">
             <h1 class="title">Solicite o seu orçamento</h1>
             <fieldset class="fields div-persianas">
               <legend>Selecione a persiana:</legend>
 
+
+
               <div id="pesiana-romana" class="div-persianas">
                 <label for="persianaList">Romana</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Romana" id="romana-list"
-                  required="required">
+                <button class="buttonInput" type="button" value="Romana" id="buttonRomana"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
               <div id="pesiana-rolo" class="div-persianas">
                 <label for="persianaList">Rolô</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Rolô" id="rolo-list"
-                  required="required">
+                <button class="buttonInput" type="button" value="Rolô" id="buttonRolo"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
               <div id="pesiana-doublevision" class="div-persianas">
                 <label for="persianaList">Double Vision</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Double Vision"
-                  id="doublevision-list" required="required">
+                <button class="buttonInput" type="button" value="Double Vision" id="buttonDoublevision"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
               <div id="pesiana-painel" class="div-persianas">
                 <label for="persianaList">Painel</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Painel" id="painel-list"
-                  required="required">
+                <button class="buttonInput" type="button" value="Painel" id="buttonPainel"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
               <div id="pesiana-vertical" class="div-persianas">
                 <label for="persianaList">Vertical</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Vertical"
-                  id="vertical-list" required="required">
+                <button class="buttonInput" type="button" value="Vertical" id="buttonVertical"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
               <div id="pesiana-horizontal" class="div-persianas">
                 <label for="persianaList">Horizontal</label>
-                <input onclick="verifyCurtainType()" type="radio" name="persianaList" value="Horizontal"
-                  id="horizontal-list" required="required">
+                <button class="buttonInput" type="button" value="Horizontal" id="buttonHorizontal"
+                  onclick="verifyCurtainType(event)"></button>
               </div>
 
             </fieldset>
 
+            <!-- Tipo de cortina -->
 
             <fieldset class="fields div-persianas" required="required">
               <legend>Selecione o tipo de cortina:</legend>
@@ -209,19 +214,19 @@
                 <label for="black">Blackout</label>
               </div>
 
-              <div class="div-persianas" id="div-alum">
+              <div class="div-persianas hidden" id="div-alum">
                 <input type="radio" onclick="setSelectedOption(event)" id="alum" class="field" name="field"
                   value="Aluminio" required="required" />
                 <label for="alum">Alumínio</label>
               </div>
 
-              <div class="div-persianas" id="div-pvc">
+              <div class="div-persianas hidden" id="div-pvc">
                 <input type="radio" onclick="setSelectedOption(event)" id="pvc" class="field" name="field" value="Pvc"
                   required="required" />
                 <label for="pvc">PVC</label>
               </div>
 
-              <div class="div-persianas" id="div-madeira">
+              <div class="div-persianas hidden" id="div-madeira">
                 <input type="radio" onclick="setSelectedOption(event)" id="madeira" class="field" name="field"
                   value="madeira" required="required" />
                 <label for="madedira">Madeira</label>
@@ -229,6 +234,8 @@
 
             </fieldset>
 
+
+            <!-- comando manual ou automatico -->
             <fieldset id="curtainCommand" class="fields ">
               <legend>Selecione o tipo de comando:</legend>
 
@@ -242,19 +249,21 @@
               </div>
             </fieldset>
 
+            <!-- button como medir -->
+
             <summary id="summary">Como medir?</summary>
             <p class="summary-text hidden" id="summaryText">
-              <strong> DENTRO DO VÃO </strong> <br />
+              <strong>DENTRO DO VÃO </strong> <br />
               Meça a largura e altura do vão da janela e diminua 1cm em cada
               medida. Exemplo: Vão com 1,10x1,10 - Fazer pedido com 1,09 x
               1,09; (evite instalar persiana blackout dentro do vão)<br />
               <br />
-              <strong> NA PAREDE</strong> <br />
+              <strong>NA PAREDE</strong> <br />
               Meça a largura e altura da janela e adicione 15cm em cada uma
               das extremidades para melhor acabamento. Exemplo: Janela com
               1,10x1,10 - Fazer pedido com 1,40x1,40; <br />
               <br />
-              <strong> TETO</strong><br />
+              <strong>TETO</strong><br />
               Meça a largura e altura da janela e adicione 15cm em cada
               lateral e na parte de baixo. Meça a distância da janela até o
               teto e adicione essa medida na altura da persiana. Exemplo:
@@ -262,14 +271,17 @@
               medida entre a janela e o teto;
             </p>
 
+            <!-- input de medidas  -->
             <div class="dimension">
               <label for="largura">Largura:</label>
-              <input type="text" name="largura" id="width" placeholder="Largura (cm)" required="required" />
+              <input type="text" name="largura" id="width" placeholder="Largura ex:(1,79)" required="required" />
 
               <label for="altura">Altura:</label>
-              <input type="text" name="altura" id="height" placeholder="Altura (cm)" required="required" />
+              <input type="text" name="altura" id="height" placeholder="Altura ex:(2,10)" required="required" />
             </div>
 
+
+            <!-- calcular -->
             <a onclick="enviarPedido()" id="button" type="button" class="button" href="#">
               Calcular
             </a>
@@ -281,6 +293,7 @@
 
     <hr />
 
+    <!-- mapa -->
     <section id="localization">
       <div class="topo">
         <h1 class="title">Nós ficamos aqui!</h1>

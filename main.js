@@ -72,9 +72,32 @@ function enviarPedido() {
 }
 
 
-function verifyCurtainType() {
-  const form = document.getElementById('formulario')
-  const valorPersiana = form.persianaList.value
+function verifyCurtainType(e) {
+
+  removeClicked()
+  e.target.classList.add('buttonInputClicked')
+  checkValue(e.target.value)
+
+}
+
+
+function removeClicked() {
+
+  var buttonInput = document.querySelectorAll('.buttonInput')
+
+  buttonInput.forEach((e) => {
+
+    e.classList.remove('buttonInputClicked')
+
+  })
+
+}
+
+
+/*====================== checar valores ============== */
+
+function checkValue(valorPersiana) {
+
 
 
   if (valorPersiana == 'Romana') {
@@ -102,7 +125,12 @@ function verifyCurtainType() {
     setHorizontal()
     resetRadio()
   }
+  else if (teste == 'Vertical') {
+    setVertical()
+    resetRadio()
+  }
 }
+
 
 
 /* =================== resetando o valor do radio====== */
