@@ -43,14 +43,14 @@ function enviarPedido() {
   const valorForm = form.field.value
   const valorTecido = tecido.innerText
   const valorComando = form.commandField.value
-  const valorPersiana = form.persianaList.value
-  const data = [valorAltura, valorLargura, valorForm, valorTecido, valorComando, valorPersiana]
+  const buttonCliked = document.querySelector('.buttonInputClicked').value
+  const data = [valorAltura, valorLargura, valorForm, valorTecido, valorComando, buttonCliked]
 
 
 
   if (!data.includes('')) {
     window.location.href = `https://api.whatsapp.com/send?phone=556799983815&text=Olá, solicito um orçamento! %0A-------------------------------%0ATecido escolhido: %20${valorForm}
-      %0AO tipo de cortina:%20${valorPersiana}
+      %0AO tipo de cortina:%20${buttonCliked}
       %0AO tipo de comando:%20${valorComando}
       %0ALargura:%20${valorLargura}cm
       %0AAltura:%20${valorAltura}cm`
@@ -81,14 +81,12 @@ function verifyCurtainType(e) {
 }
 
 
-function removeClicked() {
 
+function removeClicked() {
   var buttonInput = document.querySelectorAll('.buttonInput')
 
   buttonInput.forEach((e) => {
-
     e.classList.remove('buttonInputClicked')
-
   })
 
 }
